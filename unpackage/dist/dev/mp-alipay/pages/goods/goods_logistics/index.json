@@ -1,0 +1,7 @@
+{
+  "defaultTitle": "物流信息",
+  "usingComponents": {
+    "recommend": "/components/recommend/index",
+    "authorize": "/components/Authorize"
+  }
+}

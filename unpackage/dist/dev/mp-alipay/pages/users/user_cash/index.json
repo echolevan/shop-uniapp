@@ -1,0 +1,7 @@
+{
+  "defaultTitle": "提现",
+  "titleBarColor": "#FFFFFF",
+  "usingComponents": {
+    "authorize": "/components/Authorize"
+  }
+}

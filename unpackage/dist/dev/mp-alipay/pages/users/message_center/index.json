@@ -1,0 +1,8 @@
+{
+  "defaultTitle": "消息中心",
+  "pullRefresh": true,
+  "usingComponents": {
+    "home": "/components/home/index",
+    "tui-drawer": "/components/tuiDrawer/index"
+  }
+}

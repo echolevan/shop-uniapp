@@ -1,0 +1,7 @@
+{
+  "defaultTitle": "对话详情",
+  "titleBarColor": "#3875EA",
+  "usingComponents": {
+    "loading": "/components/Loading/index"
+  }
+}

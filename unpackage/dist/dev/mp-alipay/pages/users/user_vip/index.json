@@ -1,0 +1,8 @@
+{
+  "defaultTitle": "我的等级",
+  "titleBarColor": "#232323",
+  "usingComponents": {
+    "recommend": "/components/recommend/index",
+    "authorize": "/components/Authorize"
+  }
+}

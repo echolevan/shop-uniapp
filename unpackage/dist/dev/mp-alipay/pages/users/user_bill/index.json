@@ -1,0 +1,8 @@
+{
+  "defaultTitle": "账单明细",
+  "usingComponents": {
+    "authorize": "/components/Authorize",
+    "empty-page": "/components/emptyPage",
+    "home": "/components/home/index"
+  }
+}

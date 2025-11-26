@@ -1,0 +1,6 @@
+{
+  "defaultTitle": "拼团活动",
+  "usingComponents": {
+    "home": "/components/home/index"
+  }
+}

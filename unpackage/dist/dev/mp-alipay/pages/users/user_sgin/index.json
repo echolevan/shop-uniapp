@@ -1,0 +1,6 @@
+{
+  "defaultTitle": "签到",
+  "usingComponents": {
+    "authorize": "/components/Authorize"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "component": true,
+  "styleIsolation": "apply-shared",
+  "usingComponents": {
+    "product-window": "/components/productWindow/index",
+    "good-class": "/components/goodClass/index",
+    "cart-list": "/components/cartList/index",
+    "parabala-ball": "/components/parabolaBall/ParabolaBall"
+  }
+}

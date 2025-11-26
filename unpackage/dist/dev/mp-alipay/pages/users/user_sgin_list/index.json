@@ -1,0 +1,7 @@
+{
+  "defaultTitle": "签到记录",
+  "usingComponents": {
+    "empty-page": "/components/emptyPage",
+    "authorize": "/components/Authorize"
+  }
+}

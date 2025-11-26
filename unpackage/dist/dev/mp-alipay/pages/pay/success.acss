@@ -1,0 +1,33 @@
+
+page {
+  background-color: #fff;
+}
+
+
+.container.data-v-0248d7b3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  background-color: #ffffff;
+}
+.success-box.data-v-0248d7b3 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.success-icon.data-v-0248d7b3 {
+  width: 180rpx;
+  height: 180rpx;
+}
+.icon-check.data-v-0248d7b3 {
+  font-size: 120rpx;
+  color: #07c160; /* 微信绿 */
+}
+.text-success.data-v-0248d7b3 {
+  margin-top: 30rpx;
+  font-size: 48rpx;
+  color: #333;
+  font-weight: bold;
+}
+

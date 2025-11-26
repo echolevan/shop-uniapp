@@ -1,0 +1,1 @@
+<view><block a:if="{{loading&&!loaded}}"><view class="Loads acea-row row-center-wrapper" style="margin-top:.2rem;"><block a:if="{{loading}}"><view><view class="iconfont icon-jiazai loading acea-row row-center-wrapper"></view>{{''+$root.m0+''}}</view></block><block a:else><view>{{''+$root.m1+''}}</view></block></view></block></view>

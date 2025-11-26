@@ -1,0 +1,1 @@
+<view class="marquee-wrap _div data-v-fd80118c"><view class="{{(((('marquee-list')+' '+'_ul')+' '+'data-v-fd80118c')+' '+((animateUp)?'animate-up':''))}}"><view class="_li data-v-fd80118c" a:for="{{listData}}" a:for-item="item" a:for-index="index" a:key="index">{{$root.m0+" "+(item.user.nickname||'**')+" "+$root.m1+" "+item.prize.name+''}}</view></view></view>

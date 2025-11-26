@@ -1,0 +1,9 @@
+{
+  "defaultTitle": "员工列表",
+  "titleBarColor": "#e93323",
+  "usingComponents": {
+    "authorize": "/components/Authorize",
+    "home": "/components/home/index",
+    "zb-code": "/components/zb-code/zb-code"
+  }
+}

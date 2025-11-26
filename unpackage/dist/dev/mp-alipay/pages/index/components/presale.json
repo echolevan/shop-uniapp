@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "easy-loadimage": "/components/easy-loadimage/easy-loadimage",
+    "base-money": "/components/BaseMoney"
+  },
+  "component": true,
+  "styleIsolation": "apply-shared"
+}

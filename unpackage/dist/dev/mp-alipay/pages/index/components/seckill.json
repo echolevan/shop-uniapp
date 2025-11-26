@@ -1,0 +1,9 @@
+{
+  "component": true,
+  "styleIsolation": "shared",
+  "usingComponents": {
+    "easy-loadimage": "/components/easy-loadimage/easy-loadimage",
+    "base-money": "/components/BaseMoney",
+    "count-down": "/components/countDown/index"
+  }
+}

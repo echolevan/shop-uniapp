@@ -1,0 +1,8 @@
+{
+  "defaultTitle": "推广人列表",
+  "titleBarColor": "#FFFFFF",
+  "usingComponents": {
+    "authorize": "/components/Authorize",
+    "home": "/components/home/index"
+  }
+}

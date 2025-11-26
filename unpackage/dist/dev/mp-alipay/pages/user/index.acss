@@ -1,0 +1,542 @@
+@charset "UTF-8";
+/**
+ * 这里是uni-app内置的常用样式变量
+ *
+ * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量
+ * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App
+ *
+ */
+/**
+ * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能
+ *
+ * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件
+ */
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* crmeb颜色变量 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+page,
+page {
+  height: 100%;
+}
+.height {
+  margin-top: -100rpx !important;
+}
+.unBg {
+  background-color: unset !important;
+}
+.unBg .user-info .info .name {
+  color: #333333 !important;
+  font-weight: 600;
+}
+.unBg .user-info .info .num {
+  color: #333 !important;
+}
+.unBg .user-info .info .num .num-txt {
+  height: 38rpx;
+  background-color: rgba(51, 51, 51, 0.13);
+  padding: 0 12rpx;
+  border-radius: 16rpx;
+}
+.unBg .num-wrapper {
+  color: #333 !important;
+  font-weight: 600;
+}
+.unBg .num-wrapper .num-item .txt {
+  color: rgba(51, 51, 51, 0.7) !important;
+}
+.unBg .message .iconfont {
+  color: #333 !important;
+}
+.unBg .message .num {
+  color: #fff !important;
+  background-color: var(--view-theme) !important;
+}
+.unBg .setting .iconfont {
+  color: #333 !important;
+}
+.cardVipB {
+  background-color: #343a48;
+  width: 100%;
+  height: 124rpx;
+  border-radius: 16rpx 16rpx 0 0;
+  padding: 22rpx 30rpx 0 30rpx;
+  margin-top: 16px;
+}
+.cardVipB .left-box .small {
+  color: #f8d5a8;
+  font-size: 28rpx;
+  margin-left: 18rpx;
+}
+.cardVipB .left-box .pictrue {
+  width: 40rpx;
+  height: 45rpx;
+}
+.cardVipB .left-box .pictrue image {
+  width: 100%;
+  height: 100%;
+}
+.cardVipB .btn {
+  color: #bbbbbb;
+  font-size: 26rpx;
+}
+.cardVipB .icon-jiantou {
+  margin-top: 6rpx;
+}
+.cardVipA {
+  position: absolute;
+  background: url(/static/images/member.png) no-repeat;
+  background-size: 100% 100%;
+  width: 750rpx;
+  height: 84rpx;
+  bottom: -2rpx;
+  left: 0;
+  padding: 0 56rpx 0 135rpx;
+}
+.cardVipA .left-box {
+  font-size: 26rpx;
+  color: #905100;
+  font-weight: 400;
+}
+.cardVipA .btn {
+  color: #905100;
+  font-weight: 400;
+  font-size: 24rpx;
+}
+.cardVipA .iconfont {
+  font-size: 20rpx;
+  margin: 4rpx 0 0 4rpx;
+}
+.new-users {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.new-users .sys-head {
+  position: relative;
+  width: 100%;
+}
+.new-users .sys-head .bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--view-theme);
+  background-size: 100% auto;
+  background-position: left bottom;
+}
+.new-users .sys-head .sys-title {
+  z-index: 10;
+  position: relative;
+  height: 43px;
+  text-align: center;
+  line-height: 43px;
+  font-size: 36rpx;
+  color: #ffffff;
+}
+.new-users .head .user-card {
+  position: relative;
+  width: 100%;
+  height: 380rpx;
+  margin: 0 auto;
+  padding: 35rpx 28rpx;
+  background-image: url(/static/images/user01.png);
+  background-size: 100% auto;
+  background-color: var(--view-theme);
+}
+.new-users .head .user-card .user-info {
+  z-index: 20;
+  position: relative;
+  display: flex;
+}
+.new-users .head .user-card .user-info .headwear {
+  position: absolute;
+  right: -4rpx;
+  top: -14rpx;
+  width: 44rpx;
+  height: 44rpx;
+}
+.new-users .head .user-card .user-info .headwear image {
+  width: 100%;
+  height: 100%;
+}
+.new-users .head .user-card .user-info .live {
+  width: 28rpx;
+  height: 28rpx;
+  margin-left: 20rpx;
+}
+.new-users .head .user-card .user-info .bntImg {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 120rpx;
+  background-color: unset;
+  position: relative;
+}
+.new-users .head .user-card .user-info .bntImg .avatarName {
+  font-size: 16rpx;
+  color: #fff;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.6);
+  height: 37rpx;
+  line-height: 37rpx;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+.new-users .head .user-card .user-info .avatar-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+}
+.new-users .head .user-card .user-info .avatar-box.on .avatar {
+  border: 2px solid #ffac65;
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+.new-users .head .user-card .user-info .avatar {
+  position: relative;
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+}
+.new-users .head .user-card .user-info .info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 20rpx;
+  padding: 20rpx 0;
+}
+.new-users .head .user-card .user-info .info .name {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  font-size: 31rpx;
+}
+.new-users .head .user-card .user-info .info .name .nickname {
+  max-width: 8em;
+}
+.new-users .head .user-card .user-info .info .name .vip {
+  margin-left: 10rpx;
+}
+.new-users .head .user-card .user-info .info .name .vip image {
+  width: 78rpx;
+  height: 30rpx;
+  display: block;
+}
+.new-users .head .user-card .user-info .info .num {
+  display: flex;
+  align-items: center;
+  font-size: 26rpx;
+  color: rgba(255, 255, 255, 0.6);
+}
+.new-users .head .user-card .user-info .info .num image {
+  width: 22rpx;
+  height: 23rpx;
+  margin-left: 20rpx;
+}
+.new-users .head .user-card .message {
+  align-self: flex-start;
+  position: relative;
+  margin-top: 15rpx;
+  margin-right: 20rpx;
+}
+.new-users .head .user-card .message .num {
+  position: absolute;
+  top: -8rpx;
+  left: 18rpx;
+  padding: 0 6rpx;
+  height: 28rpx;
+  border-radius: 12rpx;
+  background-color: #fff;
+  font-size: 18rpx;
+  line-height: 28rpx;
+  text-align: center;
+  color: var(--view-theme);
+}
+.new-users .head .user-card .message .iconfont {
+  font-size: 40rpx;
+  color: #fff;
+}
+.new-users .head .user-card .num-wrapper {
+  z-index: 30;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 22rpx;
+  color: #fff;
+}
+.new-users .head .user-card .num-wrapper .num-item {
+  width: 33.33%;
+  text-align: center;
+}
+.new-users .head .user-card .num-wrapper .num-item ~ .num-item {
+  position: relative;
+}
+.new-users .head .user-card .num-wrapper .num-item ~ .num-item:before {
+  content: '';
+  position: absolute;
+  width: 1rpx;
+  height: 28rpx;
+  top: 50%;
+  margin-top: -14rpx;
+  background-color: rgba(255, 255, 255, 0.4);
+  left: 0;
+}
+.new-users .head .user-card .num-wrapper .num-item .num {
+  font-size: 42rpx;
+  font-weight: bold;
+}
+.new-users .head .user-card .num-wrapper .num-item .txt {
+  margin-top: 8rpx;
+  font-size: 26rpx;
+  color: rgba(255, 255, 255, 0.6);
+}
+.new-users .head .user-card .sign {
+  z-index: 200;
+  position: absolute;
+  right: -12rpx;
+  top: 80rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 120rpx;
+  height: 60rpx;
+  background: linear-gradient(90deg, #ffe157 0%, #eec10f 100%);
+  border-radius: 29rpx 4rpx 4rpx 29rpx;
+  color: #282828;
+  font-size: 28rpx;
+  font-weight: bold;
+}
+.new-users .head .order-wrapper {
+  background: #fff;
+  margin: 0 30rpx;
+  border-radius: 16rpx;
+  position: relative;
+  margin-top: -10rpx;
+}
+.new-users .head .order-wrapper .order-hd {
+  justify-content: space-between;
+  padding: 30rpx 20rpx 10rpx 30rpx;
+  margin-top: 25rpx;
+  font-size: 30rpx;
+  color: #282828;
+}
+.new-users .head .order-wrapper .order-hd .left {
+  font-weight: bold;
+}
+.new-users .head .order-wrapper .order-hd .right {
+  display: flex;
+  align-items: center;
+  color: #666666;
+  font-size: 26rpx;
+}
+.new-users .head .order-wrapper .order-hd .right .icon-jiantou {
+  margin-left: 5rpx;
+  font-size: 26rpx;
+}
+.new-users .head .order-wrapper .order-bd {
+  display: flex;
+  padding: 0 0;
+}
+.new-users .head .order-wrapper .order-bd .order-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 20%;
+  height: 140rpx;
+}
+.new-users .head .order-wrapper .order-bd .order-item .pic {
+  position: relative;
+  text-align: center;
+}
+.new-users .head .order-wrapper .order-bd .order-item .pic .iconfont {
+  font-size: 48rpx;
+  color: var(--view-theme);
+}
+.new-users .head .order-wrapper .order-bd .order-item .pic image {
+  width: 58rpx;
+  height: 48rpx;
+}
+.new-users .head .order-wrapper .order-bd .order-item .txt {
+  margin-top: 6rpx;
+  font-size: 26rpx;
+  color: #333;
+}
+.new-users .slider-wrapper {
+  margin: 20rpx 30rpx;
+  height: 130rpx;
+}
+.new-users .slider-wrapper swiper,
+.new-users .slider-wrapper swiper-item {
+  height: 100%;
+}
+.new-users .slider-wrapper image {
+  width: 100%;
+  height: 130rpx;
+  border-radius: 16rpx;
+}
+.new-users .user-menus {
+  background-color: #fff;
+  margin: 0 30rpx;
+  border-radius: 16rpx;
+}
+.new-users .user-menus .column-box {
+  padding: 30rpx 20rpx 10rpx 30rpx;
+}
+.new-users .user-menus .column-box .item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 40rpx;
+  font-size: 26rpx;
+}
+.new-users .user-menus .column-box .item .name {
+  flex: 1;
+  text-align: left;
+}
+.new-users .user-menus .column-box .item image {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 20rpx;
+}
+.new-users .user-menus .column-box .item .icon-jiantou {
+  font-size: 26rpx;
+  color: #606266;
+}
+.new-users .user-menus .column-box .item:last-child::before {
+  display: none;
+}
+.new-users .user-menus .column-box .item:last-child {
+  margin-bottom: 20rpx;
+}
+.new-users .user-menus .menu-title {
+  padding: 30rpx 30rpx 40rpx;
+  font-size: 30rpx;
+  color: #282828;
+  font-weight: bold;
+}
+.new-users .user-menus .list-box {
+  display: flex;
+  flex-wrap: wrap;
+}
+.new-users .user-menus .list-box .item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  width: 25%;
+  margin-bottom: 40rpx;
+  font-size: 26rpx;
+  color: #333333;
+}
+.new-users .user-menus .list-box .item .name {
+  flex: 1;
+  text-align: left;
+}
+.new-users .user-menus .list-box .item image {
+  width: 52rpx;
+  height: 52rpx;
+  margin-bottom: 18rpx;
+}
+.new-users .user-menus .list-box .item:last-child::before {
+  display: none;
+}
+.new-users .user-menus button {
+  font-size: 28rpx;
+}
+.new-users .phone {
+  color: #fff;
+  background-color: #ffffff80;
+  border-radius: 15px;
+  width: -webkit-max-content;
+  width: max-content;
+  font-size: 24rpx;
+  padding: 2px 10px;
+  margin-top: 8rpx;
+}
+.new-users .order-status-num {
+  min-width: 12rpx;
+  background-color: #fff;
+  color: var(--view-theme);
+  border-radius: 15px;
+  position: absolute;
+  right: -14rpx;
+  top: -15rpx;
+  font-size: 20rpx;
+  padding: 0 8rpx;
+  border: 1px solid var(--view-theme);
+}
+.new-users .support {
+  width: 219rpx;
+  height: 74rpx;
+  margin: 54rpx auto;
+  display: block;
+}
+.card-vip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  width: 690rpx;
+  height: 134rpx;
+  margin: -72rpx auto 0;
+  background: url(/static/images/user_vip.png);
+  background-size: cover;
+  padding-left: 118rpx;
+  padding-right: 34rpx;
+}
+.card-vip .left-box {
+  font-size: 24rpx;
+  color: #ae5a2a;
+}
+.card-vip .left-box .big {
+  font-size: 28rpx;
+}
+.card-vip .left-box .small {
+  opacity: 0.8;
+  margin-top: 10rpx;
+}
+.card-vip .btn {
+  height: 52rpx;
+  line-height: 52rpx;
+  padding: 0 10rpx;
+  text-align: center;
+  background: #fff;
+  border-radius: 28rpx;
+  font-size: 26rpx;
+  color: #ae5a2a;
+}
+.setting {
+  margin-top: 15rpx;
+  margin-left: 15rpx;
+  color: #fff;
+}
+.setting .iconfont {
+  font-size: 40rpx;
+}
+.new-users {
+  padding-bottom: 0;
+  padding-bottom: constant(safe-area-inset-bottom);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+

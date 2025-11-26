@@ -1,0 +1,6 @@
+{
+  "defaultTitle": "限时秒杀",
+  "usingComponents": {
+    "home": "/components/home/index"
+  }
+}

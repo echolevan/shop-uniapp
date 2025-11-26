@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "styleIsolation": "apply-shared",
+  "usingComponents": {
+    "authorize": "/components/Authorize",
+    "home": "/components/home/index"
+  }
+}

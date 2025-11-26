@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "styleIsolation": "apply-shared",
+  "usingComponents": {
+    "uni-calendar-item": "/pages/admin/components/uni-calendar/uni-calendar-item"
+  }
+}

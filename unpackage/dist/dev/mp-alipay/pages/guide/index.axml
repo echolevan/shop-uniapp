@@ -1,0 +1,1 @@
+<view class="main"><block a:if="{{guidePages}}"><guide vue-id="53892f06-1" advData="{{advData}}" time="{{advData.time}}" onVueInit="__l"></guide></block></view>

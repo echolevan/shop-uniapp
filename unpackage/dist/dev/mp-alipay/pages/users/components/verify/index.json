@@ -1,0 +1,9 @@
+{
+  "component": true,
+  "styleIsolation": "apply-shared",
+  "usingComponents": {
+    "verify-slide": "/pages/users/components/verify/verifySlider/index",
+    "verify-point": "/pages/users/components/verify/verifyPoint/verifyPoint",
+    "verify-slider-pc": "/pages/users/components/verify/verifySlider/verifySliderPc"
+  }
+}

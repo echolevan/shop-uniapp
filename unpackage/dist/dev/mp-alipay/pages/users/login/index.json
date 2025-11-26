@@ -1,0 +1,6 @@
+{
+  "defaultTitle": "登录",
+  "usingComponents": {
+    "verify": "/pages/users/components/verify/index"
+  }
+}

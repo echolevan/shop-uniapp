@@ -1,0 +1,8 @@
+{
+  "defaultTitle": "积分详情",
+  "titleBarColor": "#FFFFFF",
+  "usingComponents": {
+    "authorize": "/components/Authorize",
+    "empty-page": "/components/emptyPage"
+  }
+}

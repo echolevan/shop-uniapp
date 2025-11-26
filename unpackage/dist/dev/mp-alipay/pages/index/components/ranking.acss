@@ -1,0 +1,29 @@
+
+.rank-card {
+	width: 372rpx;
+	padding: 22rpx 16rpx 18rpx;
+}
+.rank_count{
+	width:30rpx;
+	height:32rpx;
+	position: absolute;
+	top:0;
+	left:0;
+	background-size: cover;
+}
+.rank-count1{
+	background-image:url(/static/images/rank1_icon.png);
+}
+.rank-count2{
+	background-image:url(/static/images/rank2_icon.png);
+}
+.rank-count3{
+	background-image:url(/static/images/rank3_icon.png);
+}
+.type-3{
+	padding: 20rpx 36rpx 20rpx 18rpx;
+}
+.rank-pro-item ~ .rank-pro-item{
+	margin-top: 16rpx;
+}
+

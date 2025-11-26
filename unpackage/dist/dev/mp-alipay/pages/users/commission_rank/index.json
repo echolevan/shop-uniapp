@@ -1,0 +1,8 @@
+{
+  "defaultTitle": "佣金排行",
+  "titleBarColor": "#FFFFFF",
+  "usingComponents": {
+    "authorize": "/components/Authorize",
+    "empty-page": "/components/emptyPage"
+  }
+}

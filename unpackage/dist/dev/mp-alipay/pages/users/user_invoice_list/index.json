@@ -1,0 +1,6 @@
+{
+  "defaultTitle": "发票管理",
+  "usingComponents": {
+    "home": "/components/home/index"
+  }
+}

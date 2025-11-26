@@ -1,0 +1,9 @@
+{
+  "defaultTitle": "推广人订单",
+  "titleBarColor": "#FFFFFF",
+  "usingComponents": {
+    "authorize": "/components/Authorize",
+    "empty-page": "/components/emptyPage",
+    "home": "/components/home/index"
+  }
+}

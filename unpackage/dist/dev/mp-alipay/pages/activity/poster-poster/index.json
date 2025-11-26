@@ -1,0 +1,6 @@
+{
+  "defaultTitle": "砍价海报",
+  "usingComponents": {
+    "zb-code": "/components/zb-code/zb-code"
+  }
+}

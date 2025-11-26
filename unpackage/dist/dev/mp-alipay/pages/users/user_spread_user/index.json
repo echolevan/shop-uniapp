@@ -1,0 +1,8 @@
+{
+  "defaultTitle": "我的推广",
+  "titleBarColor": "#FFFFFF",
+  "usingComponents": {
+    "authorize": "/components/Authorize",
+    "home": "/components/home/index"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "defaultTitle": "我的优惠券",
+  "usingComponents": {
+    "authorize": "/components/Authorize",
+    "home": "/components/home/index"
+  }
+}
