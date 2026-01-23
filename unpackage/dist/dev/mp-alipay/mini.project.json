@@ -1,6 +1,28 @@
 {
+  "component2": true,
+  "enableAppxNg": true,
+  "axmlStrictCheck": false,
+  "enableParallelLoader": false,
+  "enableDistFileMinify": false,
+  "enableNodeModuleBabelTransform": false,
+  "nonLoadingIndicator": true,
+  "compileType": "mini",
   "format": 2,
+  "miniprogramRoot": "./",
   "compileOptions": {
-    "component2": true
-  }
+    "component2": true,
+    "transpile": {
+      "script": {
+        "ignore": []
+      }
+    }
+  },
+  "uploadExclude": [],
+  "assetsInclude": [],
+  "developOptions": {
+    "parallel": false,
+    "minify": false
+  },
+  "pluginResolution": {},
+  "scripts": {}
 }

@@ -1,5 +1,6 @@
 {
   "defaultTitle": "佣金排行",
+  "navigationBarFrontColor": "black",
   "titleBarColor": "#FFFFFF",
   "usingComponents": {
     "authorize": "/components/Authorize",

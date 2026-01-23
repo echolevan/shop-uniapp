@@ -44,27 +44,27 @@ _vue.default.prototype.$socket = new _new_chat.default();
 _vue.default.config.productionTip = false;
 var pageLoading = function pageLoading() {
   __webpack_require__.e(/*! require.ensure | components/pageLoading */ "components/pageLoading").then((function () {
-    return resolve(__webpack_require__(/*! ./components/pageLoading.vue */ 1048));
+    return resolve(__webpack_require__(/*! ./components/pageLoading.vue */ 1072));
   }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
 };
 var skeleton = function skeleton() {
   __webpack_require__.e(/*! require.ensure | components/skeleton/index */ "components/skeleton/index").then((function () {
-    return resolve(__webpack_require__(/*! ./components/skeleton/index.vue */ 1055));
+    return resolve(__webpack_require__(/*! ./components/skeleton/index.vue */ 1079));
   }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
 };
 var easyLoadimage = function easyLoadimage() {
   __webpack_require__.e(/*! require.ensure | components/easy-loadimage/easy-loadimage */ "components/easy-loadimage/easy-loadimage").then((function () {
-    return resolve(__webpack_require__(/*! @/components/easy-loadimage/easy-loadimage.vue */ 1062));
+    return resolve(__webpack_require__(/*! @/components/easy-loadimage/easy-loadimage.vue */ 1086));
   }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
 };
 var BaseMoney = function BaseMoney() {
   __webpack_require__.e(/*! require.ensure | components/BaseMoney */ "components/BaseMoney").then((function () {
-    return resolve(__webpack_require__(/*! ./components/BaseMoney.vue */ 1069));
+    return resolve(__webpack_require__(/*! ./components/BaseMoney.vue */ 1093));
   }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
 };
 var BaseTag = function BaseTag() {
   __webpack_require__.e(/*! require.ensure | components/BaseTag */ "components/BaseTag").then((function () {
-    return resolve(__webpack_require__(/*! ./components/BaseTag.vue */ 1076));
+    return resolve(__webpack_require__(/*! ./components/BaseTag.vue */ 1100));
   }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
 };
 _vue.default.component('skeleton', skeleton);

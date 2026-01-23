@@ -696,7 +696,7 @@ export default {
       })
     },
     addCartChange(item, index){
-      console.log(item, index);
+      console.log(item,index, this.bntConfig);
       if(this.bntConfig == 1){
         if(item.spec_type){
           this.goCartDuo(item);

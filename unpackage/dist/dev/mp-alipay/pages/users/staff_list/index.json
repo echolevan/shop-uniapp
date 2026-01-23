@@ -1,5 +1,6 @@
 {
   "defaultTitle": "员工列表",
+  "navigationBarFrontColor": "#fff",
   "titleBarColor": "#e93323",
   "usingComponents": {
     "authorize": "/components/Authorize",

@@ -1,5 +1,6 @@
 {
   "defaultTitle": "积分商城",
+  "navigationBarFrontColor": "white",
   "titleBarColor": "#333333",
   "usingComponents": {}
 }

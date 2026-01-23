@@ -79,12 +79,12 @@ export const sharePoster = {
 						that.downloadFilePromotionCode(function(
 							msgPromotionCode) {
 							arr2[2] = msgPromotionCode;
-							if (arr2[2] == "")
-								return that.$util.Tips({
-									title: i18n.t(
-										`海报二维码生成失败`
-									),
-								});
+							// if (arr2[2] == "")
+							// 	return that.$util.Tips({
+							// 		title: i18n.t(
+							// 			`海报二维码生成失败`
+							// 		),
+							// 	});
 							that.$util.PosterCanvas(
 								arr2,
 								that.storeInfo.store_name,

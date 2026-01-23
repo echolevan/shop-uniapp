@@ -1,5 +1,6 @@
 {
   "defaultTitle": "积分详情",
+  "navigationBarFrontColor": "black",
   "titleBarColor": "#FFFFFF",
   "usingComponents": {
     "authorize": "/components/Authorize",

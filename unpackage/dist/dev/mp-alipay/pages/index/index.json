@@ -1,5 +1,6 @@
 {
   "defaultTitle": "",
+  "navigationBarFrontColor": "black",
   "usingComponents": {
     "loading": "/components/Loading/index",
     "page-footer": "/components/pageFooter/index",

@@ -32,15 +32,18 @@
     </view>
     <view class="btn">
       <button
-          open-type="getPhoneNumber"
-          @getphonenumber="getphonenumber"
+          @click="toPay"
           class="button acea-row row-center-wrapper">{{ $t(`确认支付`) }}
       </button>
+      <!--      <button-->
+      <!--          open-type="getPhoneNumber"-->
+      <!--          @getphonenumber="getphonenumber"-->
+      <!--          class="button acea-row row-center-wrapper">{{ $t(`确认支付`) }}-->
+      <!--      </button>-->
       <!--      @click='goPay(number, paytype)'-->
       <!--			<view class="wait-pay" @click="waitPay">{{$t(`暂不支付`)}}</view>-->
     </view>
     <view v-show="false" v-html="formContent"></view>
-  </view>
   </view>
 </template>
 
@@ -51,6 +54,7 @@ import numberScroll from '@/components/numberScroll.vue'
 import {
   getCashierOrder,
   orderAliMPrPay,
+  aliMpByOrderId,
   orderPay
 } from '@/api/order.js';
 import {
@@ -58,7 +62,9 @@ import {
 } from '@/api/public.js'
 import {
   routineBindingAliPhone,
+  routineBindingAliWithCode,
 } from '@/api/public';
+import {routineBindingUserLog} from "../../../api/public";
 
 export default {
   components: {
@@ -193,6 +199,142 @@ export default {
     }
   },
   methods: {
+    toPay(e) {
+      routineBindingUserLog({
+        orderId: this.orderId,
+        action: '点击支付按钮',
+        code: 0
+      })
+      uni.showLoading({
+        title: '正在唤起支付...'
+      });
+      Routine.getCode()
+          .then(code => {
+            this.toPayALiPay(code);
+          })
+          .catch(error => {
+            uni.hideLoading();
+          });
+    },
+    toPayALiPay(code) {
+      const that = this
+      routineBindingAliWithCode({
+        code: code,
+      })
+          .then(res => {
+            const openId = res.data.openId;
+            if (!this.goodsId || this.goodsId == 0) {
+              aliMpByOrderId({
+                openId: openId,
+                orderId: this.orderId,
+              }).then(res => {
+                const tradeNo = res.data.tradeNo
+                uni.requestPayment({
+                  provider: 'alipay',
+                  tradeNO: tradeNo,
+                  success: function (res) {
+                    console.log('success', res, res.resultCode);
+                    if (res.resultCode == 9000) {
+                      routineBindingUserLog({
+                        orderId: that.orderId,
+                        action: '支付成功',
+                        code: res.resultCode
+                      })
+                      uni.showToast({
+                        title: '支付成功',
+                        icon: 'success',
+                        duration: 1500,
+                      })
+                      that.$store.commit("LOGOUT");
+                      uni.reLaunch({
+                        url: '/pages/pay/success',
+                      })
+                    } else {
+                      routineBindingUserLog({
+                        orderId: that.orderId,
+                        action: '取消支付',
+                        code: res.resultCode
+                      })
+                    }
+                  },
+                  fail: function (res) {
+                    console.log('fail', res, res.resultCode);
+                    uni.showToast({
+                      title: '支付失败',
+                      icon: 'error',
+                      duration: 1500,
+                    })
+                    routineBindingUserLog({
+                      orderId: that.orderId,
+                      action: '拉起支付失败',
+                      code: res.resultCode
+                    })
+                  },
+                  complete: function (res) {
+                    console.log('complete', res, res.resultCode);
+                    uni.hideLoading();
+                  }
+                })
+              })
+            } else {
+              // 支付
+              orderAliMPrPay({
+                openId: openId,
+                orderId: this.orderId,
+                goodsId: this.goodsId,
+              }).then(res => {
+                const tradeNo = res.data.tradeNo
+                uni.requestPayment({
+                  provider: 'alipay',
+                  tradeNO: tradeNo,
+                  success: function (res) {
+                    console.log('success', res, res.resultCode);
+                    if (res.resultCode == 9000) {
+                      uni.showToast({
+                        title: '支付成功',
+                        icon: 'success',
+                        duration: 1500,
+                      })
+                      that.$store.commit("LOGOUT");
+                      uni.reLaunch({
+                        url: '/pages/pay/success',
+                      })
+                    } else {
+                      routineBindingUserLog({
+                        orderId: that.orderId,
+                        action: '取消支付',
+                        code: res.resultCode
+                      })
+                    }
+                  },
+                  fail: function (res) {
+                    uni.showToast({
+                      title: '支付失败',
+                      icon: 'error',
+                      duration: 1500,
+                    })
+                    routineBindingUserLog({
+                      orderId: that.orderId,
+                      action: '拉起支付失败',
+                      code: res.resultCode
+                    })
+                  },
+                  complete: function (res) {
+                    uni.hideLoading();
+                    routineBindingUserLog({
+                      orderId: that.orderId,
+                      action: '支付流程结束',
+                      code: res.resultCode
+                    })
+                  }
+                })
+              })
+            }
+          })
+          .catch(res => {
+            uni.hideLoading();
+          });
+    },
     getphonenumber(e) {
       uni.showLoading({
         title: '正在唤起支付...'
@@ -213,45 +355,89 @@ export default {
       })
           .then(res => {
             const openId = res.data.openId;
-            // 支付
-            orderAliMPrPay({
-              openId: openId,
-              orderId: this.orderId,
-              goodsId: this.goodsId,
-            }).then(res => {
-              const tradeNo = res.data.tradeNo
-              uni.requestPayment({
-                provider: 'alipay',
-                tradeNO: tradeNo,
-                success: function (res) {
-                  uni.showToast({
-                    title: '支付成功',
-                    icon: 'success',
-                    duration: 1500,
-                  })
-                  that.$store.commit("LOGOUT");
-                  uni.reLaunch({
-                    url: '/pages/pay/success',
-                  })
-                },
-                fail: function (res) {
-                  uni.showToast({
-                    title: '支付失败',
-                    icon: 'error',
-                    duration: 1500,
-                  })
-                },
-                complete: function (res) {
-                  uni.hideLoading();
-                }
+            if (!this.goodsId || this.goodsId == 0) {
+              aliMpByOrderId({
+                openId: openId,
+                orderId: this.orderId,
+              }).then(res => {
+                const tradeNo = res.data.tradeNo
+                uni.requestPayment({
+                  provider: 'alipay',
+                  tradeNO: tradeNo,
+                  success: function (res) {
+                    console.log('success', res, res.resultCode);
+                    if (res.resultCode == 9000) {
+                      uni.showToast({
+                        title: '支付成功',
+                        icon: 'success',
+                        duration: 1500,
+                      })
+                      that.$store.commit("LOGOUT");
+                      uni.reLaunch({
+                        url: '/pages/pay/success',
+                      })
+                    }
+                  },
+                  fail: function (res) {
+                    console.log('fail', res, res.resultCode);
+                    uni.showToast({
+                      title: '支付失败',
+                      icon: 'error',
+                      duration: 1500,
+                    })
+                  },
+                  complete: function (res) {
+                    console.log('complete', res, res.resultCode);
+                    uni.hideLoading();
+                  }
+                })
               })
-            })
+            } else {
+              // 支付
+              orderAliMPrPay({
+                openId: openId,
+                orderId: this.orderId,
+                goodsId: this.goodsId,
+              }).then(res => {
+                const tradeNo = res.data.tradeNo
+                uni.requestPayment({
+                  provider: 'alipay',
+                  tradeNO: tradeNo,
+                  success: function (res) {
+                    uni.showToast({
+                      title: '支付成功',
+                      icon: 'success',
+                      duration: 1500,
+                    })
+                    that.$store.commit("LOGOUT");
+                    uni.reLaunch({
+                      url: '/pages/pay/success',
+                    })
+                  },
+                  fail: function (res) {
+                    uni.showToast({
+                      title: '支付失败',
+                      icon: 'error',
+                      duration: 1500,
+                    })
+                  },
+                  complete: function (res) {
+                    uni.hideLoading();
+                  }
+                })
+              })
+            }
           })
           .catch(res => {
             uni.hideLoading();
           });
     },
     getBasicConfig() {
+      routineBindingUserLog({
+        orderId: this.orderId,
+        action: '用户进入支付界面',
+        code: 0
+      })
       this.active = 1
       // basicConfig().then(res => {
       //   //微信支付是否开启
@@ -292,8 +478,18 @@ export default {
         this.oid = res.data.oid
         this.is_gift = res.data.is_gift
         uni.hideLoading();
+        routineBindingUserLog({
+          orderId: this.orderId,
+          action: '创建订单成功，等待用户支付',
+          code: 0
+        })
       }).catch(err => {
         uni.hideLoading();
+        routineBindingUserLog({
+          orderId: this.orderId,
+          action: '创建订单失败',
+          code: 500
+        })
         return this.$util.Tips({
           title: err
         })

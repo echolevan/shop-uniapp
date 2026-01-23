@@ -1,0 +1,1 @@
+<view class="container data-v-4388b694"><view class="price data-v-4388b694">¥99.00</view><button type="primary" data-event-opts="{{[['tap',[['createOrder',['$event']]]]]}}" onTap="__e" class="data-v-4388b694"> 立即支付 </button></view>

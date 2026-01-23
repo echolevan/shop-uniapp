@@ -9,7 +9,7 @@
 			<view class="mp-header" id="home" :style="[mpHeaderStyle]">
 <!--				<view class="sys-head" :style="{ height: statusBarHeight + 'px' }" v-if="!special"></view>-->
 				<view class="serch-box">
-					<view class="serch-wrapper flex" :class="special ? 'on' : ''">
+					<view class="serch-wrapper flex" :class="special ? 'on' : ''" style="padding: 5px 15px">
 						<view class="title skeleton-rect" :style="[titleStyle]" v-if="searchBox == 0">{{ titleConfig }}</view>
 						<view class="logo skeleton-rect" v-if="searchBox == 1">
 							<image :src="logoUpImg" mode="heightFix"></image>

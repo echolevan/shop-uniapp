@@ -582,9 +582,9 @@ export default {
 							that.PromotionCode = res.tempFilePath;
 						},
 						fail: function () {
-							return that.$util.Tips({
-								title: that.$t(`二维码获取失败`)
-							});
+							// return that.$util.Tips({
+							// 	title: that.$t(`二维码获取失败`)
+							// });
 						}
 					});
 

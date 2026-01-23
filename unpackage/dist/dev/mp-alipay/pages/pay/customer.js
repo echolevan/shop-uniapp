@@ -162,7 +162,7 @@ var _default = {
           var payType = data.pay_type;
           if (!amount) {
             uni.showToast({
-              title: '订单信息获取失败',
+              title: res.data.message || '订单已过期，请重新拉单',
               icon: 'none'
             });
             return;

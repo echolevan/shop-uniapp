@@ -1,5 +1,6 @@
 {
   "defaultTitle": "个人中心",
+  "navigationBarFrontColor": "black",
   "pullRefresh": true,
   "usingComponents": {
     "page-footer": "/components/pageFooter/index",

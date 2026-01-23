@@ -1,5 +1,6 @@
 {
   "defaultTitle": "对话详情",
+  "navigationBarFrontColor": "white",
   "titleBarColor": "#3875EA",
   "usingComponents": {
     "loading": "/components/Loading/index"

@@ -1,5 +1,6 @@
 {
   "defaultTitle": "专题页",
+  "navigationBarFrontColor": "white",
   "titleBarColor": "#333333",
   "usingComponents": {
     "loading": "/components/Loading/index",

@@ -7,6 +7,8 @@
     "pages/pay/customerAli",
     "pages/pay/success",
     "pages/pay/confirmOrder",
+    "pages/pay/trade",
+    "pages/pay/tradeAli",
     "pages/pay/confirmOrderAli",
     "pages/user/index",
     "pages/goods_cate/goods_cate"
@@ -44,7 +46,8 @@
         "receive_gifts_status/index",
         "receive_gift/index",
         "cashier/index",
-        "cashier2/index"
+        "cashier2/index",
+        "cashier_trade/index"
       ],
       "name": "goods"
     },
@@ -174,6 +177,7 @@
   ],
   "window": {
     "defaultTitle": "加载中",
+    "navigationBarFrontColor": "black",
     "titleBarColor": "#fff",
     "backgroundColor": "#F8F8F8"
   },

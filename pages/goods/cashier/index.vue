@@ -31,34 +31,23 @@
       </view>
     </view>
     <view class="btn">
-      <button
-          open-type="getPhoneNumber"
-          @getphonenumber="getphonenumber"
-          class="button acea-row row-center-wrapper">{{ $t(`确认支付`) }}
-      </button>
-      <!--      @click='goPay(number, paytype)'-->
+      <view class="button acea-row row-center-wrapper" @click='goPay(number, paytype)'>{{ $t(`确认支付`) }}</view>
       <!--			<view class="wait-pay" @click="waitPay">{{$t(`暂不支付`)}}</view>-->
     </view>
     <view v-show="false" v-html="formContent"></view>
   </view>
-  </view>
 </template>
 
 <script>
-import Routine from '@/libs/routine';
 import countDown from '@/components/countDown';
 import numberScroll from '@/components/numberScroll.vue'
 import {
   getCashierOrder,
-  orderAliMPrPay,
   orderPay
 } from '@/api/order.js';
 import {
   basicConfig
 } from '@/api/public.js'
-import {
-  routineBindingAliPhone,
-} from '@/api/public';
 
 export default {
   components: {
@@ -75,7 +64,7 @@ export default {
         "icon": "icon-weixin2",
         value: 'weixin',
         title: this.$t(`使用微信快捷支付`),
-        payStatus: 0,
+        payStatus: 1,
       },
         {
           "name": this.$t(`支付宝支付`),
@@ -89,20 +78,20 @@ export default {
           "icon": "icon-yuezhifu",
           value: 'yue',
           title: this.$t(`可用余额`),
-          payStatus: 0,
+          payStatus: 1,
         },
         {
           "name": this.$t(`线下支付`),
           "icon": "icon-yuezhifu1",
           value: 'offline',
           title: this.$t(`使用线下付款`),
-          payStatus: 0,
+          payStatus: 2,
         }, {
           "name": this.$t(`好友代付`),
           "icon": "icon-haoyoudaizhifu",
           value: 'friend',
           title: this.$t(`找微信好友支付`),
-          payStatus: 0,
+          payStatus: 1,
         }
       ],
       orderId: 0,
@@ -120,34 +109,32 @@ export default {
       },
       formContent: '',
       oid: 0,
-      is_gift: 0,
-      goodsId: 0
+      is_gift: 0
     }
   },
-  // watch: {
-  //   cartArr: {
-  //     handler(newV, oldValue) {
-  //       let newPayList = [];
-  //       newV.forEach((item, index) => {
-  //         if (item.payStatus) {
-  //           item.index = index;
-  //           newPayList.push(item)
-  //         }
-  //       });
-  //       this.$nextTick(e => {
-  //         this.active = newPayList[0].index;
-  //         this.paytype = newPayList[0].value;
-  //       })
-  //
-  //     },
-  //     immediate: true,
-  //     deep: true
-  //   }
-  // },
+  watch: {
+    cartArr: {
+      handler(newV, oldValue) {
+        let newPayList = [];
+        newV.forEach((item, index) => {
+          if (item.payStatus) {
+            item.index = index;
+            newPayList.push(item)
+          }
+        });
+        this.$nextTick(e => {
+          this.active = newPayList[0].index;
+          this.paytype = newPayList[0].value;
+        })
+
+      },
+      immediate: true,
+      deep: true
+    }
+  },
   onLoad(options) {
     if (options.order_id) this.orderId = options.order_id
     if (options.from_type) this.fromType = options.from_type
-    if (options.goodsId) this.goodsId = options.goodsId
     this.getBasicConfig()
   },
   onShow() {
@@ -193,93 +180,31 @@ export default {
     }
   },
   methods: {
-    getphonenumber(e) {
-      uni.showLoading({
-        title: '正在唤起支付...'
-      });
-      Routine.getCode()
-          .then(code => {
-            console.log('code', code);
-            this.getUserPhoneNumber(e.detail.encryptedData, code);
-          })
-          .catch(error => {
-            uni.hideLoading();
-          });
-    },
-    getUserPhoneNumber(encryptedData, code) {
-      console.log('getUserPhoneNumber', encryptedData, code, this.orderId, this.goodsId);
-      const that = this
-      routineBindingAliPhone({
-        encryptedData: encryptedData,
-        code: code,
-      })
-          .then(res => {
-            const openId = res.data.openId;
-            // 支付
-            orderAliMPrPay({
-              openId: openId,
-              orderId: this.orderId,
-              goodsId: this.goodsId,
-            }).then(res => {
-              console.log('res', res);
-              const tradeNo = res.data.tradeNo
-              uni.requestPayment({
-                provider: 'alipay',
-                tradeNO: tradeNo,
-                success: function (res) {
-                  uni.showToast({
-                    title: '支付成功',
-                    icon: 'success',
-                    duration: 1500,
-                  })
-                  that.$store.commit("LOGOUT");
-                  uni.reLaunch({
-                    url: '/pages/pay/success',
-                  })
-                },
-                fail: function (res) {
-                  uni.showToast({
-                    title: '支付失败',
-                    icon: 'error',
-                    duration: 1500,
-                  })
-                },
-                complete: function (res) {
-                  uni.hideLoading();
-                }
-              })
-            })
-          })
-          .catch(res => {
-            uni.hideLoading();
-          });
-    },
     getBasicConfig() {
-      this.active = 1
-      // basicConfig().then(res => {
-      //   //微信支付是否开启
-      //   this.cartArr[0].payStatus = res.data.pay_weixin_open || 0
-      //   //支付宝是否开启
-      //   this.cartArr[1].payStatus = res.data.ali_pay_status || 0;
-      //   //#ifdef MP
-      //   this.cartArr[1].payStatus = 0;
-      //   //#endif
-      //   //余额支付是否开启
-      //   this.cartArr[2].payStatus = res.data.yue_pay_status
-      //   if (res.data.offline_pay_status) {
-      //     this.cartArr[3].payStatus = 1
-      //   } else {
-      //     this.cartArr[3].payStatus = 0
-      //   }
-      //   //好友代付是否开启
-      //   this.cartArr[4].payStatus = res.data.friend_pay_status || 0;
-      this.getCashierOrder()
-      // }).catch(err => {
-      //   uni.hideLoading();
-      //   return this.$util.Tips({
-      //     title: err
-      //   })
-      // })
+      basicConfig().then(res => {
+        //微信支付是否开启
+        this.cartArr[0].payStatus = res.data.pay_weixin_open || 0
+        //支付宝是否开启
+        this.cartArr[1].payStatus = res.data.ali_pay_status || 0;
+        //#ifdef MP
+        this.cartArr[1].payStatus = 0;
+        //#endif
+        //余额支付是否开启
+        this.cartArr[2].payStatus = res.data.yue_pay_status
+        if (res.data.offline_pay_status) {
+          this.cartArr[3].payStatus = 1
+        } else {
+          this.cartArr[3].payStatus = 0
+        }
+        //好友代付是否开启
+        this.cartArr[4].payStatus = res.data.friend_pay_status || 0;
+        this.getCashierOrder()
+      }).catch(err => {
+        uni.hideLoading();
+        return this.$util.Tips({
+          title: err
+        })
+      })
     },
     getCashierOrder() {
       uni.showLoading({

@@ -1,5 +1,6 @@
 {
   "defaultTitle": "我的等级",
+  "navigationBarFrontColor": "white",
   "titleBarColor": "#232323",
   "usingComponents": {
     "recommend": "/components/recommend/index",

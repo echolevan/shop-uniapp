@@ -1,0 +1,47 @@
+
+.container.data-v-448720cc {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #ffffff;
+}
+
+/* 微信绿色 Loading 圆环 */
+.spinner.data-v-448720cc {
+  width: 100rpx;
+  height: 100rpx;
+  border: 10rpx solid #e5e5e5; /* 灰色背景环 */
+  border-top-color: #07c160; /* 微信绿色部分 */
+  border-radius: 50%;
+  -webkit-animation: spin-data-v-448720cc 1s linear infinite;
+          animation: spin-data-v-448720cc 1s linear infinite;
+  margin-bottom: 30rpx;
+}
+@-webkit-keyframes spin-data-v-448720cc {
+from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+}
+to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+}
+}
+@keyframes spin-data-v-448720cc {
+from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+}
+to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+}
+}
+.loading-text.data-v-448720cc {
+  font-size: 30rpx;
+  font-weight: 300;
+  color: #666;
+}
+

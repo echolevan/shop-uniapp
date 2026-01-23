@@ -13,17 +13,55 @@
 						<input type='number' :placeholder='$t(`请输入联系电话`)' name="phone" :value='userAddress.phone'
 							placeholder-class='placeholder' pattern="\d*"></input>
 					</view>
-					<view class='item acea-row row-between-wrapper'>
-						<view class='name'>{{$t(`所在地区`)}}</view>
-						<view class="address">
-							<picker mode="multiSelector" @change="bindRegionChange"
-								@columnchange="bindMultiPickerColumnChange" :value="valueRegion" :range="multiArray">
-								<view class='acea-row'>
-									<view class="picker">{{region[0]}}，{{region[1]}}，{{region[2]}}</view>
-								</view>
-							</picker>
-						</view>
-					</view>
+<!--					<view class='item acea-row row-between-wrapper'>-->
+<!--						<view class='name'>{{$t(`所在地区`)}}</view>-->
+<!--						<view class="address">-->
+<!--							<picker mode="multiSelector" @change="bindRegionChange"-->
+<!--								@columnchange="bindMultiPickerColumnChange" :value="valueRegion" :range="multiArray">-->
+<!--								<view class='acea-row'>-->
+<!--									<view class="picker">{{region[0]}}，{{region[1]}}，{{region[2]}}</view>-->
+<!--								</view>-->
+<!--							</picker>-->
+<!--						</view>-->
+<!--					</view>-->
+          <!-- 所在地区 -->
+          <view class='item acea-row row-between-wrapper'>
+            <view class='name'>{{$t(`所在地区`)}}</view>
+            <view class="address" @click="showRegionPicker = true">
+              <view class="picker">{{region[0]}}，{{region[1]}}，{{region[2]}}</view>
+            </view>
+          </view>
+
+          <!-- 自定义地区选择弹层 -->
+          <view v-if="showRegionPicker" class="region-mask" @click="showRegionPicker=false">
+            <view class="region-panel" @click.stop>
+              <picker-view
+                  :value="valueRegion"
+                  @change="onPickerViewChange"
+                  class="picker-view"
+              >
+                <picker-view-column>
+                  <view class="picker-item"
+                        v-for="(p,index) in multiArray[0]" :key="index">{{p}}</view>
+                </picker-view-column>
+
+                <picker-view-column>
+                  <view class="picker-item"
+                        v-for="(c,index) in multiArray[1]" :key="index">{{c}}</view>
+                </picker-view-column>
+
+                <picker-view-column>
+                  <view class="picker-item"
+                        v-for="(a,index) in multiArray[2]" :key="index">{{a}}</view>
+                </picker-view-column>
+              </picker-view>
+
+              <view class="btns">
+                <view class="btn cancel" @click="showRegionPicker=false">{{$t('取消')}}</view>
+                <view class="btn ok" @click="confirmRegion">{{$t('确定')}}</view>
+              </view>
+            </view>
+          </view>
 					<view class='item acea-row row-between-wrapper'>
 						<view class='name'>{{$t(`详细地址`)}}</view>
 						<input type='text' :placeholder='$t(`请填写具体地址`)' name='detail' placeholder-class='placeholder'
@@ -107,6 +145,7 @@
 				noCoupon: 0,
 				is_gift: 0,
 				order_id: 0,
+        showRegionPicker: false,
 			};
 		},
 		computed: mapGetters(['isLogin']),
@@ -140,6 +179,32 @@
 			}
 		},
 		methods: {
+      onPickerViewChange(e) {
+        const val = e.detail.value;
+        this.multiIndex = val;
+
+        // 列联动处理
+        let provinceIndex = val[0];
+        let cityIndex = val[1];
+
+        // 更新市
+        let cities = this.district[provinceIndex].c.map(i => i.n);
+        // 更新区
+        let areas = this.district[provinceIndex].c[cityIndex].c.map(i => i.n);
+
+        this.multiArray[1] = cities;
+        this.multiArray[2] = areas;
+      },
+      confirmRegion() {
+        const p = this.multiArray[0][this.multiIndex[0]];
+        const c = this.multiArray[1][this.multiIndex[1]];
+        const a = this.multiArray[2][this.multiIndex[2]];
+
+        this.region = [p, c, a];
+        this.cityId = this.district[this.multiIndex[0]].c[this.multiIndex[1]].v;
+
+        this.showRegionPicker = false;
+      },
 			// #ifdef APP-PLUS
 			// 获取选择的地区
 			handleGetRegion(region) {
@@ -595,4 +660,56 @@
 		color: var(--view-theme);
 		border: 1px solid var(--view-theme);
 	}
+
+  .region-mask {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.4);
+    z-index: 999;
+  }
+
+  .region-panel {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #fff;
+    border-radius: 16rpx 16rpx 0 0;
+    padding-bottom: 20rpx;
+  }
+
+  .picker-view {
+    height: 400rpx;
+  }
+
+  .picker-item {
+    line-height: 80rpx;
+    text-align: center;
+    font-size: 30rpx;
+  }
+
+  .btns {
+    display: flex;
+    justify-content: space-between;
+    padding: 20rpx;
+  }
+
+  .btn {
+    flex: 1;
+    text-align: center;
+    padding: 20rpx 0;
+  }
+
+  .cancel {
+    color: #666;
+  }
+
+  .ok {
+    color: #007AFF;
+    font-weight: bold;
+  }
+
 </style>

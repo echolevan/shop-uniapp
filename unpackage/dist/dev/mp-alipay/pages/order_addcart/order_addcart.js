@@ -445,22 +445,22 @@ var _methods;
 var sysHeight = 0;
 var recommend = function recommend() {
   Promise.all(/*! require.ensure | components/recommend/index */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/recommend/index")]).then((function () {
-    return resolve(__webpack_require__(/*! @/components/recommend */ 1337));
+    return resolve(__webpack_require__(/*! @/components/recommend */ 1361));
   }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
 };
 var productWindow = function productWindow() {
   __webpack_require__.e(/*! require.ensure | components/productWindow/index */ "components/productWindow/index").then((function () {
-    return resolve(__webpack_require__(/*! @/components/productWindow */ 1344));
+    return resolve(__webpack_require__(/*! @/components/productWindow */ 1368));
   }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
 };
 var authorize = function authorize() {
   __webpack_require__.e(/*! require.ensure | components/Authorize */ "components/Authorize").then((function () {
-    return resolve(__webpack_require__(/*! @/components/Authorize */ 1351));
+    return resolve(__webpack_require__(/*! @/components/Authorize */ 1375));
   }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
 };
 var pageFooter = function pageFooter() {
   Promise.all(/*! require.ensure | components/pageFooter/index */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/pageFooter/index")]).then((function () {
-    return resolve(__webpack_require__(/*! @/components/pageFooter/index.vue */ 1323));
+    return resolve(__webpack_require__(/*! @/components/pageFooter/index.vue */ 1347));
   }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
 };
 var _default = {

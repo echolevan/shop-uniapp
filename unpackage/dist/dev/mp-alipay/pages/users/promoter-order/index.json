@@ -1,5 +1,6 @@
 {
   "defaultTitle": "推广人订单",
+  "navigationBarFrontColor": "black",
   "titleBarColor": "#FFFFFF",
   "usingComponents": {
     "authorize": "/components/Authorize",

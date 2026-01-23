@@ -98,8 +98,9 @@
 					<view class="">
 						{{ site_config }}
 					</view>
+<!--          @click="goICP(configData.icp_url)"-->
 					<!-- #ifndef APP-PLUS -->
-					<view v-if="configData && configData.record_No" class="site-config" @click="goICP(configData.icp_url)">{{ configData.record_No }}</view>
+					<view v-if="configData && configData.record_No" class="site-config" >{{ configData.record_No }}</view>
 					<view class="site-config" v-if="configData && configData.network_security" @click="goICP(configData.network_security_url)">
 						<image class="ban" src="/static/images/beian.png" alt="" srcset="" />
 						{{ configData.network_security }}

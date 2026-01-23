@@ -1,5 +1,6 @@
 {
   "defaultTitle": "领取礼物",
+  "navigationBarFrontColor": "#fff",
   "titleBarColor": "#e93323",
   "usingComponents": {}
 }

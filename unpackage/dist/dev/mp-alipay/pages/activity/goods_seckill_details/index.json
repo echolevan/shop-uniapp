@@ -1,4 +1,5 @@
 {
+  "navigationBarFrontColor": "white",
   "usingComponents": {
     "product-con-swiper": "/components/productConSwiper/index",
     "product-window": "/components/productWindow/index",

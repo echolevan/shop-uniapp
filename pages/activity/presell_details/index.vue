@@ -738,9 +738,9 @@
 								that.PromotionCode = res.tempFilePath;
 							},
 							fail: function() {
-								return that.$util.Tips({
-									title: that.$t(`二维码获取失败`)
-								});
+								// return that.$util.Tips({
+								// 	title: that.$t(`二维码获取失败`)
+								// });
 							},
 						});
 
@@ -1175,10 +1175,10 @@
 							//海报二维码不存在则从新下载
 							that.downloadFilePromotionCode(function(msgPromotionCode) {
 								arr2[2] = msgPromotionCode;
-								if (arr2[2] == '')
-									return that.$util.Tips({
-										title: that.$t(`海报二维码生成失败`)
-									});
+								// if (arr2[2] == '')
+									// return that.$util.Tips({
+									// 	title: that.$t(`海报二维码生成失败`)
+									// });
 								that.$util.PosterCanvas(arr2, that.storeInfo.title, that.storeInfo
 									.price, that.storeInfo.ot_price,
 									function(tempFilePath) {

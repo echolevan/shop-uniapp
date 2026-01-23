@@ -1,5 +1,6 @@
 {
   "defaultTitle": "我的推广",
+  "navigationBarFrontColor": "black",
   "titleBarColor": "#FFFFFF",
   "usingComponents": {
     "authorize": "/components/Authorize",

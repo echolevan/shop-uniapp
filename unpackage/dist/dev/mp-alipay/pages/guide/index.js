@@ -146,7 +146,7 @@ var _cache = _interopRequireDefault(__webpack_require__(/*! @/utils/cache */ 39)
 var _api = __webpack_require__(/*! @/api/api.js */ 49);
 var guide = function guide() {
   __webpack_require__.e(/*! require.ensure | components/guide/index */ "components/guide/index").then((function () {
-    return resolve(__webpack_require__(/*! @/components/guide/index.vue */ 1083));
+    return resolve(__webpack_require__(/*! @/components/guide/index.vue */ 1107));
   }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
 };
 var _default = {

@@ -405,3 +405,11 @@ export function orderReceiveGift(orderId, data) {
 export function orderAliMPrPay(data) {
     return request.post('pay/aliMp', data);
 }
+
+export function aliMpByOrderId(data) {
+    return request.post('pay/aliMpByOrderId', data);
+}
+
+export function orderAliMPrPayTrade(data) {
+    return request.post('pay/aliMpTrade', data);
+}

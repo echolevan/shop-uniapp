@@ -1,5 +1,6 @@
 {
   "defaultTitle": "提现",
+  "navigationBarFrontColor": "black",
   "titleBarColor": "#FFFFFF",
   "usingComponents": {
     "authorize": "/components/Authorize"

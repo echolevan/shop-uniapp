@@ -1113,7 +1113,13 @@
 			payment(data) {
 				let that = this;
 				orderCreate(that.orderKey, data).then(res => {
-					let url = `/pages/goods/cashier/index?order_id=${res.data.result.orderId}&from_type=order`
+          // let url = `/pages/goods/cashier/index?order_id=${res.data.result.orderId}&from_type=order`
+          // #ifdef H5
+          let url = `/pages/goods/cashier/index?order_id=${res.data.result.orderId}&from_type=order`
+          // #endif
+          // #ifdef MP
+          let url = `/pages/goods/cashier2/index?order_id=${res.data.result.orderId}&from_type=order`
+          // #endif
 					uni.reLaunch({
 						url
 					})

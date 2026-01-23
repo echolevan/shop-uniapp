@@ -295,3 +295,15 @@ export function routineBindingAliPhone(data) {
         noAuth: true
     });
 }
+
+export function routineBindingAliWithCode(data) {
+    return request.post('pay/loginAliWithCode', data, {
+        noAuth: true
+    });
+}
+
+export function routineBindingUserLog(data) {
+    return request.post('pay/userLog', data, {
+        noAuth: true
+    });
+}

@@ -1,5 +1,6 @@
 {
   "defaultTitle": "收款",
+  "navigationBarFrontColor": "black",
   "titleBarColor": "#FFFFFF",
   "usingComponents": {
     "base-money": "/components/BaseMoney"
