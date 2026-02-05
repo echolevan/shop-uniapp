@@ -213,25 +213,26 @@ var _default = {
     }
   },
   onShow: function onShow() {
+    var _queryData$query, _queryData$query2, _queryData$query3, _queryData$query4;
     var queryData = uni.getEnterOptionsSync(); // uni-app版本 3.5.1+ 支持
-    if (queryData.query.spread) {
+    if ((_queryData$query = queryData.query) !== null && _queryData$query !== void 0 && _queryData$query.spread) {
       this.$Cache.set('spread', queryData.query.spread);
       this.globalData.spid = queryData.query.spread;
       this.globalData.pid = queryData.query.spread;
       (0, _utils.silenceBindingSpread)(this.globalData);
     }
-    if (queryData.query.spid) {
+    if ((_queryData$query2 = queryData.query) !== null && _queryData$query2 !== void 0 && _queryData$query2.spid) {
       this.$Cache.set('spread', queryData.query.spid);
       this.globalData.spid = queryData.query.spid;
       this.globalData.pid = queryData.query.spid;
       (0, _utils.silenceBindingSpread)(this.globalData);
     }
-    if (queryData.query.agent_id) {
+    if ((_queryData$query3 = queryData.query) !== null && _queryData$query3 !== void 0 && _queryData$query3.agent_id) {
       this.$Cache.set('agent_id', queryData.query.agent_id);
       this.globalData.agent_id = queryData.query.agent_id;
       (0, _utils.silenceBindingSpread)(this.globalData);
     }
-    if (queryData.query.scene) {
+    if ((_queryData$query4 = queryData.query) !== null && _queryData$query4 !== void 0 && _queryData$query4.scene) {
       var param = this.$util.getUrlParams(decodeURIComponent(queryData.query.scene));
       if (param.pid) {
         this.$Cache.set('spread', param.pid);

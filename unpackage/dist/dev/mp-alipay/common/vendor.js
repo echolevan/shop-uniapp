@@ -46474,7 +46474,7 @@ module.exports = {
   // 小程序 / APP请求配置
 
   // 请求域名 格式： https://您的域名
-  HTTP_REQUEST_URL: "https://s8.jingyiqc.com",
+  HTTP_REQUEST_URL: "https://p7.jingyiqc.com",
   // H5请求配置
 
   // 以下配置在不做二开的前提下,不需要做任何的修改
@@ -49698,24 +49698,6 @@ var Routine = /*#__PURE__*/function () {
   }, {
     key: "compareVersion",
     value: function compareVersion(v1, v2) {
-      v1 = v1.split('.');
-      v2 = v2.split('.');
-      var len = Math.max(v1.length, v2.length);
-      while (v1.length < len) {
-        v1.push('0');
-      }
-      while (v2.length < len) {
-        v2.push('0');
-      }
-      for (var i = 0; i < len; i++) {
-        var num1 = parseInt(v1[i]);
-        var num2 = parseInt(v2[i]);
-        if (num1 > num2) {
-          return 1;
-        } else if (num1 < num2) {
-          return -1;
-        }
-      }
       return 0;
     }
   }, {

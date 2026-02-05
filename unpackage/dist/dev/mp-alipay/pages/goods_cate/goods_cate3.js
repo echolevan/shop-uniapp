@@ -544,7 +544,7 @@ var _default = {
       var that = this;
       if (that.loadend) return;
       if (that.loading) return;
-      that.loading = true;
+      // that.loading = true;
       that.loadTitle = '';
       (0, _store.getProductslist)({
         page: that.page,
@@ -553,11 +553,11 @@ var _default = {
         cid: that.cid,
         sid: that.sid
       }).then(function (res) {
-        var list = res.data,
-          loadend = list.length < that.limit;
+        that.loading = false;
+        var list = res.data;
+        var loadend = list.length < that.limit;
         that.tempArr = that.$util.SplitArray(list, that.tempArr);
         that.$set(that, 'tempArr', that.tempArr);
-        that.loading = false;
         that.loadend = loadend;
         that.loadTitle = loadend ? that.$t("\u6CA1\u6709\u66F4\u591A\u5185\u5BB9\u5566~") : that.$t("\u52A0\u8F7D\u66F4\u591A");
         that.page == 1 && _this3.goTop();

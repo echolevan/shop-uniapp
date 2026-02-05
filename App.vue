@@ -77,25 +77,25 @@
 		},
 		onShow() {
 			const queryData = uni.getEnterOptionsSync(); // uni-app版本 3.5.1+ 支持
-			if (queryData.query.spread) {
+			if (queryData.query?.spread) {
 				this.$Cache.set('spread', queryData.query.spread);
 				this.globalData.spid = queryData.query.spread;
 				this.globalData.pid = queryData.query.spread;
 				silenceBindingSpread(this.globalData);
 			}
-			if (queryData.query.spid) {
+			if (queryData.query?.spid) {
 				this.$Cache.set('spread', queryData.query.spid);
 				this.globalData.spid = queryData.query.spid;
 				this.globalData.pid = queryData.query.spid;
 				silenceBindingSpread(this.globalData);
 			}
-			if (queryData.query.agent_id) {
+			if (queryData.query?.agent_id) {
 				this.$Cache.set('agent_id', queryData.query.agent_id);
 				this.globalData.agent_id = queryData.query.agent_id;
 				silenceBindingSpread(this.globalData);
 			}
 			// #ifdef MP
-			if (queryData.query.scene) {
+			if (queryData.query?.scene) {
 				let param = this.$util.getUrlParams(decodeURIComponent(queryData.query.scene));
 				if (param.pid) {
 					this.$Cache.set('spread', param.pid);

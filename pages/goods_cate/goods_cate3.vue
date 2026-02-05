@@ -72,8 +72,8 @@
 						@addCart="addCart"
 					></goodClass>
 					<view class="loadingicon acea-row row-center-wrapper">
-						<text class="loading iconfont icon-jiazai" :hidden="loading == false"></text>
-						{{ loadTitle }}
+<!--						<text class="loading iconfont icon-jiazai" :hidden="loading == false"></text>-->
+<!--						{{ loadTitle }}-->
 					</view>
 				</scroll-view>
 			</view>
@@ -506,7 +506,7 @@ export default {
 			let that = this;
 			if (that.loadend) return;
 			if (that.loading) return;
-			that.loading = true;
+			// that.loading = true;
 			that.loadTitle = '';
 			getProductslist({
 				page: that.page,
@@ -516,11 +516,11 @@ export default {
 				sid: that.sid
 			})
 				.then((res) => {
-					let list = res.data,
-						loadend = list.length < that.limit;
+          that.loading = false;
+          let list = res.data
+          let loadend = list.length < that.limit;
 					that.tempArr = that.$util.SplitArray(list, that.tempArr);
 					that.$set(that, 'tempArr', that.tempArr);
-					that.loading = false;
 					that.loadend = loadend;
 					that.loadTitle = loadend ? that.$t(`没有更多内容啦~`) : that.$t(`加载更多`);
 					that.page == 1 && this.goTop();
